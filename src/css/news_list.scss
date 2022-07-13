@@ -1,0 +1,95 @@
+
+$main-theme-color: #9f224e;
+
+.news-list-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .top-body {
+        width: calc(min(800px, 100%));
+        padding: 15px 0;
+        height: auto;
+        // position: relative;
+        
+        // .stiker-top {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: fit-content;
+        //     background-color: olivedrab;
+
+            .category-name {
+                display: block;
+                color: rgb($main-theme-color, 0.8);
+                font-size: 2rem;
+                line-height: 2rem;
+                padding-left: 1.5rem;
+            
+            }
+        // }
+    }
+
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(min(800px, 95%));
+
+    .news-item {
+        background-color: whitesmoke;
+        padding: 20px;
+        margin: 10px 5px;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.2);
+        transition: all .15s ease-in-out;
+
+        .top-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                
+                &:link {
+                    color: rgb(32, 32, 32);
+                }
+
+                &:visited {
+                    color: rgb(136, 136, 136);
+                }
+            }
+            .news-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            .news-date {
+                font-size: 0.8rem;
+                color: #666;
+            }
+        }
+
+        .news-description {
+            font-size: 1rem;
+            margin-top: 10px;
+            line-height: 1.5rem;
+        }
+
+        &:hover {
+            box-shadow: 1px 2px 10px 0px $main-theme-color;
+            .news-title {
+                color: $main-theme-color;
+            }
+        }
+    }
+}
