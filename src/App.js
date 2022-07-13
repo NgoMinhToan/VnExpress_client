@@ -1,6 +1,6 @@
 import React from 'react';
 import Homepage from './components/Homepage';
-import { BrowserRouter as Router, Link, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, NavLink, Route, Routes, BrowserRouter } from 'react-router-dom';
 import './css/global.scss';
 import routes from './routes';
 import Layout from './components/Layout';
@@ -8,7 +8,7 @@ import NewsContextProvider from './context/NewsContext';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename='/'>
       <div id="App">
        <NewsContextProvider>
             <Routes>
@@ -22,7 +22,7 @@ function App() {
             </Routes>
        </NewsContextProvider>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
