@@ -5,7 +5,10 @@ WORKDIR /app
 COPY . /app
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-RUN npm ci 
+RUN npm ci
+# Set hostname
+ARG REACT_APP_HOST_NAME_DOCKER
+ENV REACT_APP_HOST_NAME_DOCKER $REACT_APP_HOST_NAME_DOCKER
 # Build the app
 RUN npm run build
 # ==== RUN =======
