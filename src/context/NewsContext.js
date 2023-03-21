@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { createContext, useReducer } from "react";
 import axios from 'axios'
 
-const HOST = process.env.REACT_APP_HOST_NAME_DOCKER || process.env.REACT_APP_HOST_NAME
+const HOST = process.env.REACT_APP_IN_DOCKER && process.env.REACT_APP_IN_DOCKER==1 
+    ? window.location.host.replace('3000', '8000') 
+    : process.env.REACT_APP_HOST_NAME_DOCKER || process.env.REACT_APP_HOST_NAME
 
 const NewsContext = createContext();
 
