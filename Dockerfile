@@ -17,6 +17,12 @@ RUN npm run build
 # Set the env to "production"
 ENV NODE_ENV production
 # Expose the port on which the app will be running (3000 is the default that `serve` uses)
-EXPOSE 3000
+# EXPOSE 3000
 # Start the app
-CMD [ "npx", "serve", "build" ]
+# CMD [ "npx", "serve", "build" ]
+
+FROM nginx:stable-alpine AS nginx-builder
+COPY --from=react-app /app/build /var/www
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+ENTRYPOINT ["nginx","-g","daemon off;"]
