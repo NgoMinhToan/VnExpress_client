@@ -23,6 +23,6 @@ ENV NODE_ENV production
 
 FROM nginx:stable-alpine AS nginx-builder
 COPY --from=react-app /app/build /var/www
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 ENTRYPOINT ["nginx","-g","daemon off;"]
